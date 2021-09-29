@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- BootStrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container mt-5 p-0" id="main">
+        <img src="/images/ping-pong.jpeg" alt="ping-pong" class="img-fluid">
+        <div id="titleContainer">
+            <h6 class="title">Ping Pong Score Keeper</h6>
+        </div>
+        <div class="ui pb-2">
+            <h2 class="score"><span class="playerOneScore">0</span> to <span class="playerTwoScore">0</span></h2>
+            <p class="small">Use the buttons below to keep score.</p>
+
+            <form action="">
+                <div class="container-fluid form-group row p-0">
+                    <div class="col-4 pe-0">
+                        <label for="goal" class="col-form-label"><b>Playing To:</b></label>
+                    </div>
+                    <div class="col-3 ps-0">
+                        <select name="goal" id="goal" class="form-select rounded-pill">
+                            <option value="5" selected>5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn button1">+1 Player One</button>
+            <button class="btn button2">+1 Player Two</button>
+            <button class="btn button3 px-5">Reset</button>
+        </div>
+    </div>
+    
+    
+    <!-- BootStrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+    </script>
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>

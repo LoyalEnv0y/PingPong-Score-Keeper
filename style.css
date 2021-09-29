@@ -1,0 +1,52 @@
+body {
+    padding: 0%;
+    margin: 0%;
+}
+
+#main {
+    max-height: 480px;
+    max-width: 386px;
+    box-shadow: 0px 0px 4px 2px #e5e5e5;
+    border-radius: 1%;
+}
+
+#titleContainer {
+    border-top: 2px solid #e5e5e5;
+    border-bottom: 2px solid #e5e5e5;
+}
+
+.title {
+    padding: 10px;
+    padding-bottom: 5px;
+}
+
+.ui {
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+.score {
+    padding-top: 10px;
+}
+
+img {
+    border-radius: 1% 1% 0% 0%;
+}
+
+.button1 {
+    background-color: #00CBA9;
+}
+.button2 {
+    background-color: #2C8DD8;
+}
+.button3 {
+    background-color: #EE3D5E;
+}
+
+/* two classes below will be used via javascript */
+.winner {
+    color: green;
+}
+.loser {
+    color: red;
+}
