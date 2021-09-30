@@ -40,16 +40,16 @@ resetButton.addEventListener('click', () => {
  * @function endGame
  */
 goal.addEventListener('change', () => {
-    let p1ScoreInt = parseInt(p1.score.textContent)
-    let p2ScoreInt = parseInt(p2.score.textContent)
+    let p1ScoreInt = parseInt(p1.score.textContent);
+    let p2ScoreInt = parseInt(p2.score.textContent);
 
     if (isWinner(p1) || isWinner(p2)) {
         if (p1ScoreInt > p2ScoreInt) {
-            endGame(p1, p2)
+            endGame(p1, p2);
         } else if (p2ScoreInt > p1ScoreInt) {
-            endGame(p2, p1)
+            endGame(p2, p1);
         } else {
-            endGame(p1, p2, true)
+            endGame(p1, p2, true);
         }
     }
 })
@@ -65,7 +65,7 @@ function addScoreAndCheck(scoringPlayer, otherPlayer) {
     scoringPlayer.score.textContent++;
 
     if (isWinner(scoringPlayer)) {
-        endGame(scoringPlayer, otherPlayer)
+        endGame(scoringPlayer, otherPlayer);
     }
 }
 
@@ -74,7 +74,7 @@ function addScoreAndCheck(scoringPlayer, otherPlayer) {
  * @returns {boolean} whether the playerScore is higher then goal or not.
  */
 function isWinner(player) {
-    return parseInt(player.score.textContent) >= parseInt(goal.value)
+    return parseInt(player.score.textContent) >= parseInt(goal.value);
 }
 
 /**
@@ -87,8 +87,8 @@ function isWinner(player) {
  */
 function endGame(winner, loser, isTie = false) {
     if (isTie) {
-        winner.score.classList.add('tie')
-        loser.score.classList.add('tie')
+        winner.score.classList.add('tie');
+        loser.score.classList.add('tie');
     } else {
         winner.score.classList.add('winner');
         loser.score.classList.add('loser');
