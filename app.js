@@ -13,7 +13,6 @@ const goal = document.querySelector("#goal");
  */
 playerOneButton.addEventListener('click', () => {
     playerOneScore.textContent++;
-    firstReacher = playerOneScore;
 
     if (isWinner(playerOneScore.innerHTML)) {
         finalizer(playerOneScore, playerTwoScore);
@@ -23,7 +22,6 @@ playerOneButton.addEventListener('click', () => {
 // Same as playerOneButton event listener but for playerTwoButton.
 playerTwoButton.addEventListener('click', () => {
     playerTwoScore.textContent++;
-    firstReacher = playerTwoScore;
 
     if (isWinner(playerTwoScore.innerHTML)) {
         finalizer(playerTwoScore, playerOneScore);
@@ -32,32 +30,34 @@ playerTwoButton.addEventListener('click', () => {
 
 /**
  * Everytime the goal is changed this code checks if a player has won 
- * the game or not and if they did it finishes the game by calling
+ * the game or not and if they did, it finishes the game by calling
  * @function finalizer
  * 
- * It also handles any bugs that can be generated when user changes 
+ * It also handles some bugs that can be generated when user changes 
  * the goal whilst playing the game. 
  * 
  * It handles when;
  * a: User lowered goal and the new goal is lower or equal to 
- * one of the players' score.
- * b: User lowered goal and the new goal is lower or equal to 
- * both players. (in this case program choses the player with the highest score)
+ * any of the players' score. (it chooses the player with higher score)
+ * b: User lowered goal and the new goal is equal to both players.
+ * (when the game is a tie).
  */
 goal.addEventListener('change', () => {
     if (isWinner(playerOneScore.innerHTML) || isWinner(playerTwoScore.innerHTML)) {
         if (playerOneScore.innerHTML > playerTwoScore.innerHTML) {
             finalizer(playerOneScore, playerTwoScore);
-        } else {
+        } else if (playerOneScore.innerHTML < playerTwoScore.innerHTML){
             finalizer(playerTwoScore, playerOneScore);
+        } else {
+            finalizer(playerOneScore, playerTwoScore, true);
         }
     }
 })
 
 /**
- * Everytime resetButton gets clicked it sets both players scores to 0
+ * Everytime resetButton gets clicked it sets both players scores to 0,
  * enables the score incrementing buttons,
- * removes the winner and loser classes of the buttons.
+ * removes the winner, loser and tie classes of the buttons.
  */
 resetButton.addEventListener('click', () => {
     playerTwoScore.innerHTML = "0";
@@ -66,8 +66,8 @@ resetButton.addEventListener('click', () => {
     playerOneButton.disabled = false;
     playerTwoButton.disabled = false;
 
-    playerOneScore.classList.remove('winner', 'loser');
-    playerTwoScore.classList.remove('winner', 'loser');
+    playerOneScore.classList.remove('winner', 'loser', 'tie');
+    playerTwoScore.classList.remove('winner', 'loser', 'tie');
 })
 
 /**
@@ -80,15 +80,21 @@ function isWinner(playerScore) {
 
 /**
  * @function finalizer adds winner and loser classes to the 
- * players that is passed in as arguments.
- * Also disables the score incrementing buttons.
+ * players that is passed in as arguments and
+ * disables the score incrementing buttons.
  * 
  * @param {Element} winner is the leading player 
- * @param {Element} loser is the losing player
+ * @param {Element} loser is the fallowing player
+ * @param {Boolean} isTie is the identifier for if the game is a tie or not.
  */
-function finalizer(winner, loser) {
-    winner.classList.add('winner');
-    loser.classList.add('loser');
+function finalizer(winner, loser, isTie = false) {
+    if (isTie) {
+        winner.classList.add('tie')
+        loser.classList.add('tie')
+    } else {
+        winner.classList.add('winner');
+        loser.classList.add('loser');
+    }
 
     playerOneButton.disabled = true;
     playerTwoButton.disabled = true;
