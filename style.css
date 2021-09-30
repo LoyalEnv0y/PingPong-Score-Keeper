@@ -33,14 +33,14 @@ img {
     border-radius: 1% 1% 0% 0%;
 }
 
-.button1 {
-    background-color: #00CBA9;
+.playerOneBtn {
+    background-color: #00cba9;
 }
-.button2 {
-    background-color: #2C8DD8;
+.playerTwoBtn {
+    background-color: #2c8dd8;
 }
-.button3 {
-    background-color: #EE3D5E;
+.resetBtn {
+    background-color: #ee3d5e;
 }
 
 /* three classes below will be used via javascript */
@@ -51,5 +51,5 @@ img {
     color: red;
 }
 .tie {
-    color: #E4D00A;
+    color: #e4d00a;
 }
